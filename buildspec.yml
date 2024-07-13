@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo "Build started on $(date)"
+      - echo "Installing Docker and AWS CLI..."
+      - sudo apt-get update -y
+      - sudo apt-get install -y docker.io
+      - sudo apt install unzip -y
+      - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+      - unzip awscliv2.zip
+      - sudo ./aws/install --update
+
+  build:
+    commands:
+      - echo "Building the Docker image..."
+      - docker pull public.ecr.aws/i9f4p1p4/nginx-dev-index:latest
+
+  post_build:
+    commands:
+      - echo "Build completed on $(date)"
+      - echo "Docker image build completed locally."
