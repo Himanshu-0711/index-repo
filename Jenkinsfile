@@ -21,7 +21,7 @@ pipeline {
             steps {
                 // Copy the contents of the checked-out repository to Nginx HTML directory
                 script {
-                    sh "sudo cp -r ./* ${NGINX_HTML_PATH}/"
+                    sh "cp -r ./* ${NGINX_HTML_PATH}/"
                 }
             }
         }
