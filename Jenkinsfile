@@ -17,12 +17,6 @@ pipeline {
             }
         }
         
-        stage('Build') {
-            steps {
-                // If any build steps are needed (e.g., npm install, yarn build), add them here
-            }
-        }
-        
         stage('Deploy to Nginx') {
             steps {
                 // Copy the contents of the checked-out repository to Nginx HTML directory
